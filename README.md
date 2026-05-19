@@ -89,7 +89,3 @@ This ensures only one bid is processed at a time.
 The application is deployed on:
 
 - RunASP.NET
-
-# Author
-
-Your Name
