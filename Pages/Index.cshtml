@@ -1,0 +1,59 @@
+﻿@page
+
+@{
+    ViewData["Title"] = "Vintage Watch Auction";
+}
+
+
+<div class="container auction-container">
+
+    <div class="auction-card">
+
+        <div class="watch-icon">
+            ⌚
+        </div>
+
+        <h1 class="auction-title">
+            Vintage Watch Auction
+        </h1>
+
+        <p class="auction-subtitle">
+            Place real-time bids and compete live with other collectors.
+        </p>
+
+        <form onsubmit="goToAuction(event)">
+
+            <div class="mb-4">
+
+                <input type="email"
+                       class="form-control"
+                       id="email"
+                       placeholder="Enter your email"
+                       required />
+
+            </div>
+
+            <button class="btn-auction">
+                Enter Auction
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+    function goToAuction(event) {
+
+        event.preventDefault();
+
+        const email =
+            document.getElementById("email").value;
+
+        window.location.href =
+            "https://auctionapp.runasp.net/auction?email=" + encodeURIComponent(email);
+    }
+
+</script>

@@ -1,0 +1,139 @@
+﻿@page "/auction"
+@model AuctionApp.Pages.AuctionModel
+
+@{
+    ViewData["Title"] = "Vintage Watch Auction";
+}
+
+
+
+<input type="hidden"
+       id="bidApiUrl"
+       value="@Url.Content("~/api/bid")" />
+
+<input type="hidden"
+       id="hubUrl"
+       value="@Url.Content("~/auctionHub")" />
+
+<div class="container auction-wrapper">
+
+    <div class="row g-4">
+
+        <!-- LEFT SIDE -->
+        <div class="col-lg-7">
+
+            <div class="glass-card p-4">
+
+
+                <div class="watch-icon">
+                    ⌚
+                </div>
+
+                <div class="text-center">
+
+                    <div class="item-name">
+                        @(Model.Item?.Name ?? "Vintage Watch")
+                    </div>
+
+                    <div class="starting-price">
+                        Starting Price:
+                        $@(Model.Item?.StartingPrice ?? 50)
+                    </div>
+
+                    <div class="current-bid">
+                        Current Highest Bid:
+                        $<span id="currentBid">
+                            @(Model.Item?.CurrentPrice ?? 50)
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-lg-5">
+
+            <!-- PLACE BID -->
+            <div class="glass-card p-4 mb-4" style="height: 19rem">
+
+                <div class="section-title">
+                    Place Your Bid
+                </div>
+
+                <input type="number"
+                       id="bidAmount"
+                       class="form-control mb-3"
+                       placeholder="Enter bid amount" />
+
+                <button class="btn-bid"
+                        onclick="placeBid()">
+
+                    Place Bid
+
+                </button>
+
+                <div id="message"
+                     class="message text-warning">
+                </div>
+
+            </div>
+
+            
+
+        </div>
+        <!-- BID HISTORY -->
+        <div class="glass-card p-4">
+
+            <div class="section-title">
+                Recent Bids
+            </div>
+
+            <ul id="bidHistory"
+                class="bid-history">
+
+                @if (Model.Item != null && Model.Item.Bids != null)
+                {
+                    foreach (var bid in Model.Item.Bids
+                    .OrderByDescending(x => x.CreatedAt)
+                    .Take(5))
+                    {
+                        <li class="bid-item">
+
+                            <div>
+
+                                <div class="bid-email">
+                                    @bid.UserEmail
+                                </div>
+
+                                <div class="bid-time">
+                                    @bid.CreatedAt.ToLocalTime()
+                                </div>
+
+                            </div>
+
+                            <div class="bid-amount">
+                                $@bid.Amount
+                            </div>
+
+                        </li>
+                    }
+                }
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+<input type="hidden"
+       id="userEmail"
+       value="@Model.Email" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.7/signalr.min.js"></script>
+
+<script src="/js/auction.js"></script>

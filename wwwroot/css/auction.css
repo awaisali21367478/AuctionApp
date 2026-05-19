@@ -1,0 +1,195 @@
+﻿/* =========================
+   GLOBAL
+========================= */
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    min-height: 100vh;
+    color: white;
+}
+
+/* =========================
+   COMMON GLASS EFFECT
+========================= */
+
+.glass-card,
+.auction-card {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.auction-container {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auction-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+}
+
+.auction-title {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.auction-subtitle {
+    color: #cbd5e1;
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 1rem;
+}
+
+.watch-icon {
+    font-size: 60px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   AUCTION PAGE
+========================= */
+
+.auction-wrapper {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.watch-image {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.item-name {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 25px;
+}
+
+.starting-price {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.current-bid {
+    color: #4ade80;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-control {
+    height: 55px;
+    border-radius: 14px;
+    border: none;
+    background: rgba(255,255,255,0.12);
+    color: white;
+    padding-left: 18px;
+    font-size: 1rem;
+}
+
+    .form-control::placeholder {
+        color: #cbd5e1;
+    }
+
+    .form-control:focus {
+        background: rgba(255,255,255,0.18);
+        color: white;
+        box-shadow: none;
+        border: 1px solid #38bdf8;
+    }
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-auction,
+.btn-bid {
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #38bdf8, #2563eb);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+    .btn-auction:hover,
+    .btn-bid:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(37,99,235,0.3);
+    }
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+/* =========================
+   BID HISTORY
+========================= */
+
+.bid-history {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bid-item {
+    background: rgba(255,255,255,0.05);
+    border-radius: 14px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bid-email {
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.bid-amount {
+    color: #4ade80;
+    font-weight: 700;
+}
+
+.bid-time {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
